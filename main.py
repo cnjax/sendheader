@@ -13,9 +13,10 @@ except:
 class GetHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
+        print(self.headers)
         self.send_response(200, self.headers)
 
 Handler = GetHandler
-httpd = TCPServer(('', PORT), Handler)
+httpd = TCPServer(('0.0.0.0', PORT), Handler)
 
 httpd.serve_forever()
