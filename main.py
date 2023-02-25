@@ -14,9 +14,10 @@ class GetHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         print(self.headers)
-        self.send_response(200, self.headers)
+        self.send_response(200)
         self.send_header('Content-Type', 'text/plain')
         self.end_headers()
+        self.wfile.write(str(self.headers))
 
 Handler = GetHandler
 httpd = TCPServer(('0.0.0.0', PORT), Handler)
