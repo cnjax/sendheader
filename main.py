@@ -8,7 +8,7 @@ import sys
 try:
     PORT = int(sys.argv[1])
 except:
-    PORT = 8000
+    PORT = 80
 
 class GetHandler(SimpleHTTPRequestHandler):
 
